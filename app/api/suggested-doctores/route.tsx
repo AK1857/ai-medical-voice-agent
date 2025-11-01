@@ -21,13 +21,16 @@ export async function POST(req:NextRequest) {
           console.log(completion.choices[0].message);
 
           const rowResponse= completion.choices[0].message;
-          const response=rowResponse.content.replace("```json","").replace("```","").trim();
+      const response = rowResponse?.content
+        ?.replace("```json", "")
+        ?.replace("```", "")
+        ?.trim() ?? "";
           const doctors = JSON.parse(response)
         
         return new Response(JSON.stringify({doctors}),{status:200});
     }
     catch(error){
-        console.log(">>> error",error.message);
+       
         // @ts-ignore
         return new Response(JSON.stringify({error}),{status:500});
     }

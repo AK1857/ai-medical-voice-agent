@@ -4,9 +4,9 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
 export type DoctorAgetCardProps = {
-    index: number,
+    id: number,
      name: string,
-    specialty: string,
+    specialization: string,
     image: string,
     agentPrompt:string,
     description:string
